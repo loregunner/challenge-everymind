@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Active Pilots" class="slds-card">
+        <template if:true={contacts}>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Index">#</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Team">Team</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Main Sponsor">Main Sponsor</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={contacts} for:item="contact">
+                        <tr key={contact.id}>
+                            <td>
+                                <div class="slds-truncate" title={contact.indexTitle}>{contact.indexTitle}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={contact.name}>{contact.name}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={contact.team}>{contact.team}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={contact.mainSponsor}>{contact.mainSponsor}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+        <template if:true={error}>
+            <p>{error}</p>
+        </template>
+    </lightning-card>
+</template>
